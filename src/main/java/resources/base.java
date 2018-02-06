@@ -31,11 +31,10 @@ public class base {
 			System.setProperty("webdriver.gecko.driver","/Users/stask/Automation/installation/geckodriver");
 			 driver = new FirefoxDriver();
 		}	
-		
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-		
 		return driver;
 	}
+	
 	public void getScreenshot(String result) throws IOException {
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(src, new File("/Users/stask/MavenProject/Screenshots/"+result+"-screenshot.png"));

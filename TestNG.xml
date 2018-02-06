@@ -6,12 +6,17 @@
 	</listeners>
   	<test name="Home Page Verification">
 		<classes>
-    		  <class name="STI.HomePageTest"/>
+    		  <class name="tests.HomePageTest"/>
     		</classes>
     </test>
     <test name="Item List Test">
 		<classes>
-    		  <class name="STI.ItemListTest"/>
+    		  <class name="tests.ItemsListTest"/>
+    		</classes>
+    </test>
+    <test name="Item Details Page Test">
+		<classes>
+    		  <class name="tests.ItemDetailsPageTest"/>
     		</classes>
     </test>
 </suite>

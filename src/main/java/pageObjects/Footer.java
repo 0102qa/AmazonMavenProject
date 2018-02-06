@@ -22,5 +22,9 @@ public class Footer {
 	public WebElement SearchButton () {
 		return driver.findElement(SearchButtonElement);
 	}
-
+	public void ItemSearch() {
+	Footer f = new Footer(driver);
+	f.MainSearchField().sendKeys("toaster");
+	f.SearchButton().click();
+	}
 }

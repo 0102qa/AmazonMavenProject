@@ -18,35 +18,38 @@ public class HomePage {
 		this.driver = driver;
 	}
 	
-		
 	public WebElement signInPopUp() {
-	return driver.findElement(signInPopUpElement);
-	
-		
-		
+		return driver.findElement(signInPopUpElement);	
 	}
 	public WebElement signInButton() {
 		return driver.findElement(signInButtonElement);
-	}
-	
+	}	
 	public void MooveToSignIn() {		
 	Actions action = new Actions(driver);
 	action.moveToElement(driver.findElement(signInPopUpElement)).build().perform();
 	}
-	
 	public WebElement accountName() {
 		return driver.findElement(accountNameElement);
 	}
-	
 	public void logIn(String url,String name,String pass) {
-		//HomePage hp = new HomePage(driver);
+		HomePage hp = new HomePage(driver);
 		driver.get(url);
-		this.MooveToSignIn();
-		this.signInButton().click();
+		hp.MooveToSignIn();
+		hp.signInButton().click();
 		
 		LoginPage lp = new LoginPage(driver);
 		lp.emailField().sendKeys(name);
-		lp.PasswordField().sendKeys(pass);
-		lp.SignInButton().click();
-	}
+		
+		int isPassPresent = driver.findElements(lp.PasswordElement).size();
+		
+		if(isPassPresent > 0) {			 
+			lp.PasswordField().sendKeys(pass);
+			lp.SignInButton().click();
+			}
+		else {
+			lp.ContinueButton().click();
+			lp.PasswordField().sendKeys(pass);
+			lp.SignInButton().click();
+		}
+	}	
 }

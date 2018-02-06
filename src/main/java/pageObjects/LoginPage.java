@@ -11,6 +11,7 @@ public class LoginPage {
 	By emailElement = By.id("ap_email");
 	By PasswordElement = By.id("ap_password");
 	By signInButtonElement = By.id("signInSubmit");
+	By continueButtonElement = By.id("continue");
 	
 	//constructor
 	public LoginPage(WebDriver driver) {
@@ -26,4 +27,9 @@ public class LoginPage {
 	public WebElement SignInButton() {		
 		return driver.findElement(signInButtonElement);
 	}
+	public WebElement ContinueButton() {
+		return driver.findElement(continueButtonElement);	
+	}
+	 
+	
 }
